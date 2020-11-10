@@ -24,4 +24,4 @@ jobs:
           # deploy the current public folder
           # to <base url>/x.y.z version subfolder
           publish_dir: ./public
-          destination_dir: 1.0.0
+          destination_dir: 2.0.0
