@@ -1,0 +1,27 @@
+name: ci
+# only deploy site from master branch
+on:
+  push:
+    branches:
+      - master
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # https://github.com/actions/checkout
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      # you probably would do build and test steps here
+
+      # https://github.com/marketplace/actions/github-pages-action
+      - name: Deploy 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # deploy the current public folder
+          # to <base url>/x.y.z version subfolder
+          publish_dir: ./public
+          destination_dir: 1.0.0
